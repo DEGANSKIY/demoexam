@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Добавление новой заявки</title>
+</head>
+<body>
+  <h1>Добавление новой заявки</h1>
+  {% if error %}
+    <p style="color: red; ">{{ error }}</p>
+  {% endif %}
+
+  <form action="{{ url_for('add_application') }}" method="POST">
+    <label for="num_zay">Номер заявки:</label><br>
+    <input type="number" name="num_zay" id="num_zay" required><br><br>
+
+    <label for="vid_org">Вид оргтехники:</label><br>
+    <input type="text" name="vid_org" id="vid_org" required><br><br>
+
+    <label for="model">Модель:</label><br>
+    <input type="text" name="model" id="model" required><br><br>
+
+    <label for="opis_probl">Описание проблемы:</label><br>
+    <textarea name="opis_probl" id="opis_probl" required></textarea><br><br>
+
+    <label for="client_name">ФИО клиента:</label><br>
+    <input type="text" name="client_name" id="client_name" required><br><br>
+
+    <label for="phone_number">Номер телефона:</label><br>
+    <input type="text" name="phone_number" id="phone_number" required><br><br>
+
+    <label for="status">Статус:</label><br>
+    <select name="status" id="status">
+      <option value="Новая заявка">Новая заявка</option>
+      <option value="В процессе ремонта">В процессе ремонта</option>
+      <option value="Завершена">Завершена</option>
+    </select><br><br>
+
+    <label for="responsible">Ответственный:</label><br>
+    <input type="text" name="responsible" id="responsible" required><br><br>
+
+    <label for="stage_of_executio">Этап выполнения:</label><br>
+    <select name="stage_of_executio" id="stage_of_executio">
+      <option value="Готова к выдаче">Готова к выдаче</option>
+      <option value="В процессе ремонта">В процессе ремонта</option>
+      <option value="Ожидание запчастей">Ожидание запчастей</option>
+    </select><br><br>
+
+    <label for="comments">Комментарии:</label><br>
+    <textarea name="comments" id="comments"></textarea><br><br>
+
+    <label for="ordered_parts">Заказанные запчасти/материалы:</label><br>
+    <textarea name="ordered_parts" id="ordered_parts"></textarea><br><br>
+
+    <input type="submit" value="Добавить заявку">
+  </form>
+</body>
+</html>
